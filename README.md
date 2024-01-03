@@ -14,26 +14,27 @@ QnA  model.
 So it has some limitiation beyound that it will not be able to perform as per expectation.
 So the Transformer try to eliminate the existing problem of Attention based model,
 and it is state of architecture.
-All other model like GPT, GPT3, BERT, BARD is based on it albiet with dozens of stacked transfomers.
+All other model like GPT, GPT3, BERT, BARD etc are derived from it, albiet with dozens of stacked transfomers.
 
 So lets try to wrap each and every arrow and block of below architecture one by one.
 Diagram
 
-The objective was to understand the context when the sentences are long, this can be achieved if
-create a some sort of Neural Networdk then ther ei s cange i will i wil be able to understand 
-in morepossible way.
-Let create a single syste where in on one side there is encoder and on other there is decoder,
+The objective was always to understand the context when the sentences are long or to co-relate the long sentences, 
+this can be achieved by creating some sort of large and complex Neural Networdk which will have enough number of parameter to learn and retain the relations,
+then there is chance that system will be able to understand in more possible way.
+Let create a single system where in, on one side there is encoder and on other there is decoder,
 encoder take the input and decoder give the output so the definition is not going to change in this 
 system.
 
 Diagram
 
-If we can use one set of encoder and decoder then why can not we use the multiple set,
-so base architecture uses the 6 set of encoder stack on one other and 6 set of decoder.
+If one encoder can understand the length of the sentences, then why not placed multiple encoder, one will try to understand something and give output to another and then other encoder 
+will try to understand other relation and gives output to other, so base architecture uses the 6 set of encoder stack on one other and 6 set of decoder.
+
 
 Diagram
 
-The initial encoder is of various recurrent neural network(RNN), however here it is completely
+The initial encoder is of various recurrent neural network(LSTM, GRU, Bi-Directional LSTM), however here it is completely
 different, so lets have a look what has been changed in one encoder
 
 Diagram
