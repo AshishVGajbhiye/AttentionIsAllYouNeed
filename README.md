@@ -40,15 +40,18 @@ different, so lets have a look what has been changed in one encoder
 Diagram
 
 Every Encoder is composed of two block Feed Forward Neural Network and Self Attention,
-feed forward neural network is clear, however what exactly it is Self Attention, lets see:
-Take two word My and Name, this is an input and lebel them as X1 and X2.
+feed forward neural network is like any other neural network, however what exactly is Self Attention here, lets see:
+Take two word 'I' and 'am', this is an input and label them as X1 and X2.
 
-Since system will not able to undrstand this input, so the next task is to convert them to
-numerical representation and it is caled as Embedding, and these embeddings are nothing but 
-N dimenstion(vector space) reprsentation of word. So one word can be reprsent in one two thousand vector.
+Since system will not able to understand this input, so the first task is to convert them to
+numerical representation which is called as Embedding, and these embeddings are nothing but 
+N dimenstion(vector space) representation of word. So one word can be represent in N number of vector depends upon use case, 
+however here the dimension of embedding is 512 (array), so one word is represented by 512 numbers.
 
-Three things introduce here, Queries, Keys and Values., keeping in mind i will be able to focus
-and relate the date, obj is how i will be able to focus on many words and even in that case it does not fail.
+So until here we are taking input and converting them to vector(numerical representations), i.e Encoder receiving the vectors as Input
+
+Three things introduce here, Queries, Keys and Values., keeping in mind it  will be able to focus
+and relate the data, objective here is very simple, how it will be able to focus on many words and even in that case it does not fail.
 Convert this data into Queries, Key and Values, 
 
 lets define weight vector  for queries k and values. Initally these weights will be a random and then they will be trained, deriving this neural networkd as a function. weith will 
