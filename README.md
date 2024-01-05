@@ -48,7 +48,7 @@ numerical representation which is called as Embedding, and these embeddings are 
 N dimenstion(vector space) representation of word. So one word can be represent in N number of vector depends upon use case, 
 however here the dimension of embedding is 512 (array), so one word is represented by 512 numbers.
 
-So until here we are taking input and converting them to vector(numerical representations), i.e Encoder receiving the vectors as Input
+So until here we are taking input ('I' and 'Am') and converting them to embeddings(numerical representations), i.e Encoder receiving the vectors as Input
 
 Three things introduce here, Queries, Keys and Values., keeping in mind it  will be able to focus
 and relate the data, objective here is very simple, how it will be able to focus on many words and even in that case it does not fail.
@@ -57,45 +57,63 @@ Convert this data into Queries, Key and Values,
 lets define weight vector  for queries k and values. Initally these weights will be a random and then they will be trained, deriving this neural networkd as a function. weith will 
 learn the relationship in back propogation by minimising the loss.
 
-So first step is to create a query. The input(imbeddings)is passed through the neural 
-network the weights used are Wq and proudcing the queries.
+So first step is to create a query.
+The input(imbeddings) 'I' word is passed through the neural network the weights used are Wq and proudcing the queries and this is refered as q1
+similarly pass the word 'Am' and generate q2
 
-2nd step, create a key value, another neural neworkd with different weight matrix.
+2nd step, create a key value k1 and k2, like query we will use another neural neworkd and pass I and AM however with different weight matrix i.e. Wk.
 
-What about values, here we will use another weight matrix and pass the embedding.
-In that way keys value and queries are independent of each other for one particular word.
+What about values(v1 & v2), here we will use another weight matrix Wk and pass the embedding.
+In that way keys, value and queries are independent of each other for one particular word.
 So for one particular word we are trying to use three different neural network and
-trying to proudce some relation, some relations trying to learn.
+trying to proudce some relation, some complex relations trying to learn.
 
 The thought behind this is:
-Generally what we do, if we have the same data like my name is, we create a neural network
-like rnn, cnn whatever
-
-i will give less flexibility, less num o independent parameter which can focus on my then , name
-then those weight will change and try to learn the coorelation, 
+Generally what we do, if we have the same data like 'I' , 'am', we create a neural network
+like rnn, cnn or whatever., since we know that weight is the function of neural network and same weights were used for all these word, if we have the same nerual network
+it will give less flexibility, less num of independent parameter which can focus on 'I' then 'am' and
+then those weight will change and try to learn the coorelation.
 Instead of doing that why not create multiple network with multiple weight matrix
- to adjust in other dimenstions and insted of learing one pattern allowing neural networkd
- to learn other three paterns depends upon input and output. so just to make my earnign 
- flexible and make something independent of each other, so may be one network may 
+ to adjust in other dimensions and instead of learing one pattern allowing neural network
+ to learn other three paterns depends upon input and output. so just to make my learnin 
+ flexible and make something independent of each other, so may be one network  
  not be able to understand the attention correctly but other can find out other attention
  and other neural will try to adjust and tune itself in backward propogation and if not 
- other will try to do that. so just to learn independent relation, different kind of realtin between th data and so 
- queries keys and values has been introduced., and they are just the output of the neural
- network independet of each other. So the question is hwo best possible way to buld the
- relation between different words.
+ other will try to do that. So just to learn independent relation, different kind of realtion between the data and so 
+ queries, keys and values has been introduced., and they are just the output of the neural
+ network independet of each other and that way system is allowing itself to learn many pattern.
+ So the question is how best possible way to build the relation between different words.
 
   So lets move on to other step:
- Calculate Score:
+ Calculate Score: This is another atribute
  Rational: So far we were trying to create independent vector q, k and v and there 
  is no relation between them at all, now its time to understand what is the relation
- between my and name, or my is dependent on name or other data or something else.
-So to do that q1 *k1
+ between 'I' and 'AM', or 'I' is dependent on 'AM' or other data or something else.
+So to do that lets multiply q1 *k1, infact q1*k1 is dot product or vector multiplication
+q1*k1 = 12, q1*k=21
 
 Diagram: multiplication
+
+Next step is to divide the score by 8 which is nothing but dimension of key and calculate the Softmax
+
+Diagram
+
+Since softmax is we can say that I word is more related to AM than by itelf, that is intution we are getting by whatever hardcode value we have taken, that way
+we are trying to see on which word it is focusing more.
+Lets we have few more words in the sentence like "I am learning hindi" so we will have x3=learning, x4=hindi, q3, q4, k3, k4, v3 and v4.
+So we will calculate score q1*k3, q1*k4 and softmax for all of these.
+In case of 'Am' word we will calculate q2*k1, q2*k2, q2*k3, q2*k4. So for 4 word, 4 softmax will be calculated for single word like 4 softmax for I, 4 softmax for AM and same for learning and hindi.
+So if there are 10 word in the sentence then for every word there will 10 softmax, becasue we have to find the relation of one word with all, 2nd word with all 10, 3rd word with all 10 and so n so forth.
+Rational: Softmax score determines how much focus each words at this position.
+
+The next calculation is to multiply each value vector by the softmax score and sum up all the value vector.
+Diagram:
+So Z1 is for I word and Z2 is for AM word, so here the whole thing is how we will try to create a function which will try to relate it each and every word and still focus on one word or other word or many word. 
+
 
 IF it is not able to learn something, if it is not able to train the weight
  then try to skip this particular path and try to send the input to addition and 
  normilization. add and normilization, addidion is normal additon and
- Normilization is bring donw data to a particular scale
+ Normilanization is bring donw data to a particular scale
 Diagram of vector.
 
