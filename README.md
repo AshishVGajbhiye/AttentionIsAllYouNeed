@@ -18,7 +18,7 @@ QnA  model.
 So it has some limitiation beyound that it will not be able to perform as per expectation.
 So the Transformer try to eliminate the existing problem of Attention based model,
 and it is state of architecture.
-All other model like GPT, GPT3, BERT, BARD etc are derived from it, albiet with dozens of stacked transfomers.
+All other model like GPT, GPT3, BERT, BARD etc are derived from it, albeit with dozens of stacked transfomers.
 
 So lets try to wrap each and every arrow and block of below architecture one by one.
 ![1*CUeVcFFBclKsH504JraLQg](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/735e356c-6351-4efb-8ef0-1d40fb9d0c7a)
