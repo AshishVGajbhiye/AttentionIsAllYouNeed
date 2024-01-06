@@ -2,7 +2,7 @@
 
 **Prerequisite**: Understanding of Neural Network, CNN and Attention Model
 
-This writing has based on the research paper 'Attention is all you need' publised in 2017 by scholars from google brain, which has completely changed the dimension 
+This writing is based on the research paper 'Attention is all you need' publised in 2017 by scholars from google brain, which has completely changed the dimension 
 of Natural Language Processing(commonly known as NLP). This paper has worked in better use of attention mechanism toward the improvement of the model called as Transformer.
 
 ![487-4875552_transformer-jpeg-en-png-transparent-ratchet-transformers-michael png](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/92e2b69f-babd-4e93-b088-5fd1dacadaaf)
@@ -11,7 +11,7 @@ of Natural Language Processing(commonly known as NLP). This paper has worked in 
 
 Issue with attention model based on encoder and decoder:
 If the length of the input increase beyond certain limit lets say for eg. 50 or 70 words, then
-it does create a issue, issue how to focus and on which word to focus so that model can
+it does create a issue, issue as: how to focus and on which word to focus so that model can
 a give a accurate translation, or give some kind of answer if you are trying to build
 QnA  model.
 
@@ -24,9 +24,9 @@ So lets try to wrap each and every arrow and block of below architecture one by 
 ![1*CUeVcFFBclKsH504JraLQg](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/735e356c-6351-4efb-8ef0-1d40fb9d0c7a)
 
 The objective was always to understand the context when the sentences are long or to co-relate the long sentences, 
-this can be achieved by creating some sort of large and complex Neural Networdk which will have enough number of parameter to learn and retain the relations,
+this can be achieved by creating some sort of large and complex Neural Networdk which will have enough number of parameter to learn and retain the relations/context,
 then there is chance that system will be able to understand in more possible way.
-Let create a single system where in, on one side there is encoder and on other there is decoder,
+In below diagram on one side there is encoder and on other there is decoder,
 encoder take the input and decoder give the output so the definition is not going to change in this 
 system.
 
@@ -46,11 +46,12 @@ different, so lets have a look what has been changed in one encoder
 
 Every Encoder is composed of two block Feed Forward Neural Network and Self Attention,
 feed forward neural network is like any other neural network, however what exactly is Self Attention here, lets see:
+
 Take two word 'I' and 'am', this is an input and label them as X1 and X2.
 
 Since system will not able to understand this input, so the first task is to convert them to
 numerical representation which is called as Embedding, and these embeddings are nothing but 
-N dimenstion(vector space) representation of word. 
+N dimension(vector space) representation of word. 
 
 ![Untitled Diagram-Embedding](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/bad0ae17-365b-4b4a-ae87-f86e9899ba6c)
 
@@ -62,13 +63,16 @@ however here the dimension of embedding is 512 (array), so one word is represent
 
 So until here we are taking input ('I' and 'Am') and converting them to embeddings(numerical representations), i.e Encoder receiving the vectors as Input
 
-Three things introduce here, Queries, Keys and Values., keeping in mind it  will be able to focus
+Next three things introduce, Queries, Keys and Values., keeping in mind it  will be able to focus
 and relate the data, objective here is very simple, how it will be able to focus on many words and even in that case it does not fail.
+
 Convert this data into Queries, Key and Values.
 
 ![initalkeyquery](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/9ef8790a-8822-4aaf-a883-6a96555615cf)
 
-lets define weight vector  for queries k and values. Initally these weights will be a random and then they will be trained, deriving this neural networkd as a function. Weight will 
+lets define weight vector  for queries, key and values. 
+
+Initally these weights will be a random and then they will be trained, deriving this neural network as a function. Weight will 
 learn the relationship in back propogation by minimising the loss.
 
 
@@ -83,23 +87,25 @@ What about values(v1 & v2), here we will use another weight matrix Wk and pass t
 
 In that way keys, value and queries are independent of each other for one particular word.
 So for one particular word we are trying to use three different neural network and
-trying to proudce some relation, some complex relations trying to learn.
+trying to produce some relation, some complex relations trying to learn.
 
 The thought behind this is:
 
 Generally what we do, if we have the same data like 'I' , 'am', we create a neural network
-like rnn, cnn or whatever., since we know that weight is the function of neural network and same weights were used for all these word, if we have the same nerual network
+like RNN, CNN or whatever., since we know that weight is the function of neural network and same weights were used for all these word, if we have the same nerual network
 it will give less flexibility, less num of independent parameter which can focus on 'I' then 'am' and
 then those weight will change and try to learn the coorelation.
 
 
 Instead of doing that why not create multiple network with multiple weight matrix
 to adjust in other dimensions and instead of learing one pattern allowing neural network
-to learn other three paterns depends upon input and output. so just to make my learnin 
+to learn other three paterns depends upon input and output. so just to make my learning 
 flexible and make something independent of each other, so may be one network  
 not be able to understand the attention correctly but other can find out other attention
 and other neural will try to adjust and tune itself in backward propogation and if not 
-other will try to do that. So just to learn independent relation, different kind of realtion between the data and so 
+other will try to do that.
+
+So just to learn independent relation, different kind of realtion between the data and so 
 queries, keys and values has been introduced., 
 
 and they are just the output of the neural
@@ -129,7 +135,7 @@ q1.k1 = 12, q1.k=21
 
 ![softmax](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/ff242527-4c8f-453b-8457-0e7917f261ec)
 
-Since softmax is we can say that I word is more related to AM than by itelf, that is intution we are getting by whatever hardcode value we have taken, that way
+Since softmax is, we can say that I word is more related to AM than by itelf, that is intution we are getting by whatever hardcode value we have taken, that way
 we are trying to see on which word it is focusing more.
 
 Lets we have few more words in the sentence like "I am learning hindi" so we will have x3=learning, x4=hindi, q3, q4, k3, k4, v3 and v4.
@@ -193,13 +199,22 @@ Now let's come to the other side of the Architercture i.e Decoder.
 The simple role of the decoder is provide the outcome
 
 The output from the Enocder which we can say query, key and value and pass the entire output to Multi-Head Attention block of Decoder, plus output from 'Masked Multi-Head Attention' block.
-So what is the Masked here..It is nothing but hide some information or detail and send it to the network, the rational behind is to check whether my network is capable enough to generate that hidden information or not, so this is one change on decoder part.
+So what is the Masked here..It is nothing but hide some information or detail and send it to the network,
 
-Decoder will try to give the final outcome, now whatever outcome it is going to give you for sure it need classification or probability of occurence of data for that reason a simple linear neural network is placed and logit function of softmax or probaitliyt function as a softmax so that i ca tel you final classificaiton for whtever the word we have.
+the rational behind is to check whether  network is capable enough to generate that hidden information or not, so this is one change on decoder part.
 
-Reference:
+Decoder will try to give the final outcome, now whatever outcome it is going to give you for sure it need classification or probability of occurence of data for that reason a simple linear neural network is placed and logit function of softmax or probability function as a softmax so that sytem can tell you final classification for whatever the word we have passed as input.
+
+I belive you will found this useful!!
+
+Thank you.
+
+#### Reference:
 Research Paper: https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf
 https://gluebenchmark.com/leaderboard
 https://dawn.cs.stanford.edu/benchmark/ImageNet/train.html
+
+#### Acknowledgement
+
 
 
