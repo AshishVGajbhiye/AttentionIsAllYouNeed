@@ -44,6 +44,11 @@ different, so lets have a look what has been changed in one encoder
 
 ![multifeed](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/a6e7e252-10ae-47bd-be04-27e681e0143d)
 
+So let's start with Encoder.
+
+#### Encoder
+-----------
+
 Every Encoder is composed of two block Feed Forward Neural Network and Self Attention,
 feed forward neural network is like any other neural network, however what exactly is Self Attention here, lets see:
 
