@@ -84,17 +84,17 @@ Instead of doing that why not create multiple network with multiple weight matri
  network independet of each other and that way system is allowing itself to learn many pattern.
  So the question is how best possible way to build the relation between different words.
 
-  So lets move on to other step:
- Calculate Score: This is another atribute
- Rational: So far we were trying to create independent vector q, k and v and there 
- is no relation between them at all, now its time to understand what is the relation
- between 'I' and 'AM', or 'I' is dependent on 'AM' or other data or something else.
+#####  So lets move on to other step:
+Calculate Score: This is another atribute
+Rational: So far we were trying to create independent vector q, k and v and there 
+is no relation between them at all, now its time to understand what is the relation
+between 'I' and 'AM', or 'I' is dependent on 'AM' or other data or something else.
 So to do that lets multiply q1 *k1, infact q1*k1 is dot product or vector multiplication
 q1*k1 = 12, q1*k=21
 
 Diagram: multiplication
 
-Next step is to divide the score by 8 which is nothing but dimension of key and calculate the Softmax
+#### Next step is to divide the score by 8 which is nothing but dimension of key and calculate the Softmax
 
 Diagram
 
@@ -109,6 +109,19 @@ Rational: Softmax score determines how much focus each words at this position.
 The next calculation is to multiply each value vector by the softmax score and sum up all the value vector.
 Diagram:
 So Z1 is for I word and Z2 is for AM word, so here the whole thing is how we will try to create a function which will try to relate it each and every word and still focus on one word or other word or many word. 
+
+#### Multi-Headed Attention
+Until now above we have seen one neural netword is used each to generate the query, key and value, however in original architecture the Transformer uses eight attention heads, so we end up with eight sets for each encoder/decoder.
+And this improves the performance of the attention in two ways-
+1. Add more flexibility to focus on  different position of the words by understanding the context in much better way
+2. By understanding the full stop, exclamation mark and its importance and relation to the words
+
+#### Positional Encoding
+If we look at the architecture the input to the attention layer is Embedding along with positional encoding, lets go over what exactly is positional encoding:
+To understand the order of words and understand the focus the transformer adds a vector to each input embeddings, that vector is nothing but the position of word in the sentence and follows
+a specific pattern that model learns and helps it determinte the position of each word and distance between different word in the sentence.
+The rational here is that addition of these position or vector along with embeddings is to provide meaningful distances between the embeddings vectors once they are used to generate the
+queries, key and value.
 
 
 IF it is not able to learn something, if it is not able to train the weight
