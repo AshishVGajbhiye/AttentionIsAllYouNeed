@@ -86,6 +86,7 @@ Instead of doing that why not create multiple network with multiple weight matri
 
 #####  So lets move on to other step:
 Calculate Score: This is another atribute
+
 Rational: So far we were trying to create independent vector q, k and v and there 
 is no relation between them at all, now its time to understand what is the relation
 between 'I' and 'AM', or 'I' is dependent on 'AM' or other data or something else.
