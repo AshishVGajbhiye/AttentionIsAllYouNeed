@@ -124,7 +124,7 @@ So if there are 10 word in the sentence then for every word there will 10 softma
 Rational: Softmax score determines how much focus each words at this position.
 
 The next calculation is to multiply each value vector by the softmax score and sum up all the value vector.
-Diagram:
+![Sum](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/cd8e2f0d-0999-496f-b297-6172c6a6c7a1)
 So Z1 is for I word and Z2 is for AM word, so here the whole thing is how we will try to create a function which will try to relate it each and every word and still focus on one word or other word or many word. 
 
 #### Multi-Headed Attention
