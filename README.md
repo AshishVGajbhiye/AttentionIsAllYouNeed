@@ -144,6 +144,8 @@ To understand the order of words and understand the focus the transformer adds a
 a specific pattern that model learns and helps it determinte the position of each word and distance between different word in the sentence.
 The rational here is that addition of these position or vector along with embeddings is to provide meaningful distances between the embeddings vectors once they are used to generate the
 queries, key and value.
+![positiona encodng](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/afe5fd40-4179-4508-ab5e-e4ceaed437af)
+
 
 ### Addition and Normalization
 If we look closely to the architecture then right after positional encoding one arrow goes to Add & Norm block, which is nothing but the skip connection (ResNet concept), so the rational here 
