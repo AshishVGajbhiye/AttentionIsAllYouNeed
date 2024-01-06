@@ -102,6 +102,7 @@ Instead of doing that why not create multiple network with multiple weight matri
 So lets move on to other step:
 
 Calculate Score: This is another atribute
+![score](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/d6493bb2-3afe-477b-9c5d-35bd33047ad7)
 
 Rational: So far we were trying to create independent vector q, k and v and there 
 is no relation between them at all, now its time to understand what is the relation
