@@ -1,5 +1,7 @@
 # AttentionIsAllYouNeed
 
+Understanding of Neural Network, CNN and Attention Model
+
 This writing has based on the research paper 'Attention is all you need' publised in 2017 by scholars from google brain, which has completely changed the dimension 
 of Natural Language Processing(commonly known as NLP). This paper has worked in better use of attention mechanism toward the improvement of the model called as Transformer.
 
@@ -69,56 +71,71 @@ Convert this data into Queries, Key and Values.
 lets define weight vector  for queries k and values. Initally these weights will be a random and then they will be trained, deriving this neural networkd as a function. Weight will 
 learn the relationship in back propogation by minimising the loss.
 
-####
+
 So first step is to create a query.
-The input(imbeddings) 'I' word is passed through the neural network the weights used are Wq and proudcing the queries and this is refered as q1
+The input(embeddings) 'I' word is passed through the neural network the weights used are Wq and producing the queries and this is refered as q1
 similarly pass the word 'Am' and generate q2
 
-####
-2nd step, create a key value k1 and k2, like query we will use another neural neworkd and pass I and AM however with different weight matrix i.e. Wk.
+
+2nd step, create a key value k1 and k2, like query we will use another neural nework and pass 'I' and 'AM', however with different weight matrix i.e. Wk.
 
 What about values(v1 & v2), here we will use another weight matrix Wk and pass the embedding.
+
 In that way keys, value and queries are independent of each other for one particular word.
 So for one particular word we are trying to use three different neural network and
 trying to proudce some relation, some complex relations trying to learn.
 
 The thought behind this is:
+
 Generally what we do, if we have the same data like 'I' , 'am', we create a neural network
 like rnn, cnn or whatever., since we know that weight is the function of neural network and same weights were used for all these word, if we have the same nerual network
 it will give less flexibility, less num of independent parameter which can focus on 'I' then 'am' and
 then those weight will change and try to learn the coorelation.
-Instead of doing that why not create multiple network with multiple weight matrix
- to adjust in other dimensions and instead of learing one pattern allowing neural network
- to learn other three paterns depends upon input and output. so just to make my learnin 
- flexible and make something independent of each other, so may be one network  
- not be able to understand the attention correctly but other can find out other attention
- and other neural will try to adjust and tune itself in backward propogation and if not 
- other will try to do that. So just to learn independent relation, different kind of realtion between the data and so 
- queries, keys and values has been introduced., and they are just the output of the neural
- network independet of each other and that way system is allowing itself to learn many pattern.
- So the question is how best possible way to build the relation between different words.
 
-##### 
+
+Instead of doing that why not create multiple network with multiple weight matrix
+to adjust in other dimensions and instead of learing one pattern allowing neural network
+to learn other three paterns depends upon input and output. so just to make my learnin 
+flexible and make something independent of each other, so may be one network  
+not be able to understand the attention correctly but other can find out other attention
+and other neural will try to adjust and tune itself in backward propogation and if not 
+other will try to do that. So just to learn independent relation, different kind of realtion between the data and so 
+queries, keys and values has been introduced., 
+
+and they are just the output of the neural
+network independet of each other and that way system is allowing itself to learn many pattern.
+
+
+So the question is how best possible way to build the relation between different words.
+
+ 
 So lets move on to other step:
 
-Calculate Score: This is another atribute
+Calculate Score: This is another attribute
 
 Rational: So far we were trying to create independent vector q, k and v and there 
 is no relation between them at all, now its time to understand what is the relation
 between 'I' and 'AM', or 'I' is dependent on 'AM' or other data or something else.
+
+
 So to do that lets multiply q1 *k1, infact q1*k1 is dot product or vector multiplication
-q1*k1 = 12, q1*k=21
+q1.k1 = 12, q1.k=21
 
 ![score](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/d6493bb2-3afe-477b-9c5d-35bd33047ad7)
 
+
 #### Next step is to divide the score by 8 which is nothing but dimension of key and calculate the Softmax
+
 
 ![softmax](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/ff242527-4c8f-453b-8457-0e7917f261ec)
 
 Since softmax is we can say that I word is more related to AM than by itelf, that is intution we are getting by whatever hardcode value we have taken, that way
 we are trying to see on which word it is focusing more.
+
 Lets we have few more words in the sentence like "I am learning hindi" so we will have x3=learning, x4=hindi, q3, q4, k3, k4, v3 and v4.
 So we will calculate score q1*k3, q1*k4 and softmax for all of these.
+
+
 In case of 'Am' word we will calculate q2*k1, q2*k2, q2*k3, q2*k4. So for 4 word, 4 softmax will be calculated for single word like 4 softmax for I, 4 softmax for AM and same for learning and hindi.
 So if there are 10 word in the sentence then for every word there will 10 softmax, becasue we have to find the relation of one word with all, 2nd word with all 10, 3rd word with all 10 and so n so forth.
 Rational: Softmax score determines how much focus each words at this position.
@@ -126,6 +143,8 @@ Rational: Softmax score determines how much focus each words at this position.
 The next calculation is to multiply each value vector by the softmax score and sum up all the value vector.
 ![Sum](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/cd8e2f0d-0999-496f-b297-6172c6a6c7a1)
 So Z1 is for I word and Z2 is for AM word, so here the whole thing is how we will try to create a function which will try to relate it each and every word and still focus on one word or other word or many word. 
+
+After all the steps we finally arrived with the attention formula:
 
 Attention Formula:
 
@@ -147,19 +166,19 @@ queries, key and value.
 ![positiona encodng](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/afe5fd40-4179-4508-ab5e-e4ceaed437af)
 
 
-### Addition and Normalization
+#### Addition and Normalization
 If we look closely to the architecture then right after positional encoding one arrow goes to Add & Norm block, which is nothing but the skip connection (ResNet concept), so the rational here 
 is if multiheaded connection which is nothing but a neural network is not able to learn something, if it is not able to train the weight or if there is nothing to train/change the weight or if system is not able to minimize the loss then try to skip this particular step and send dataset directly to Addition and Normalization.
 Addition is normal addition operation (X1+Z1 for e.g.) and Normalization is to bring down the data in between particular scale.
 
-### Feed Forward Network
+#### Feed Forward Network
 The data moved over to the next block i.e. Feed Forward Network again it will have n numbers of layers, numers of hidden units will be present and then again it will send data to Addition and Normalization layer.
 
 With this Encoder part is Done! (left hand side of the architecture)
 
 The output from this encoder or from this entire neural network can be used for various task like sentence classification or may to generate new data ortext or new word.
 
-### Practical Usage:
+#### Practical Usage:
 Bidirectional Encoder Representation from Transformer is a LLM (large language module) is encoder based transfomer model introduced in 2018 by Google
 
 Add a output layer or softmax function and it can used as a classification and can be used for any task like tokenization generation.
@@ -169,7 +188,7 @@ If we talk about GPT, it is completely based on Decoder which has been (GPT 3) t
 
 Now let's come to the other side of the Architercture i.e Decoder.
 
-#### Decoder
+### Decoder
 -----------------
 The simple role of the decoder is provide the outcome
 
@@ -177,4 +196,10 @@ The output from the Enocder which we can say query, key and value and pass the e
 So what is the Masked here..It is nothing but hide some information or detail and send it to the network, the rational behind is to check whether my network is capable enough to generate that hidden information or not, so this is one change on decoder part.
 
 Decoder will try to give the final outcome, now whatever outcome it is going to give you for sure it need classification or probability of occurence of data for that reason a simple linear neural network is placed and logit function of softmax or probaitliyt function as a softmax so that i ca tel you final classificaiton for whtever the word we have.
+
+Reference:
+Research Paper: https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf
+https://gluebenchmark.com/leaderboard
+https://dawn.cs.stanford.edu/benchmark/ImageNet/train.html
+
 
