@@ -1,6 +1,6 @@
-# AttentionIsAllYouNeed
+# **AttentionIsAllYouNeed**
 
-Understanding of Neural Network, CNN and Attention Model
+**Prerequisite**: Understanding of Neural Network, CNN and Attention Model
 
 This writing has based on the research paper 'Attention is all you need' publised in 2017 by scholars from google brain, which has completely changed the dimension 
 of Natural Language Processing(commonly known as NLP). This paper has worked in better use of attention mechanism toward the improvement of the model called as Transformer.
