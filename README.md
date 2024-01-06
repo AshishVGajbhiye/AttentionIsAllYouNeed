@@ -34,8 +34,8 @@ system.
 If one encoder can understand the length of the sentences, then why not placed multiple encoder, one will try to understand something and give output to another and then other encoder 
 will try to understand other relation and gives output to other, so base architecture uses the 6 set of encoder stack on one other and 6 set of decoder.
 
+![Eight](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/aea1c612-79c8-4686-84ab-f033df607568)
 
-Diagram
 
 The initial encoder is of various recurrent neural network(LSTM, GRU, Bi-Directional LSTM), however here it is completely
 different, so lets have a look what has been changed in one encoder
