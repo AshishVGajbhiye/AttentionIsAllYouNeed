@@ -102,7 +102,6 @@ Instead of doing that why not create multiple network with multiple weight matri
 So lets move on to other step:
 
 Calculate Score: This is another atribute
-![score](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/d6493bb2-3afe-477b-9c5d-35bd33047ad7)
 
 Rational: So far we were trying to create independent vector q, k and v and there 
 is no relation between them at all, now its time to understand what is the relation
@@ -110,7 +109,7 @@ between 'I' and 'AM', or 'I' is dependent on 'AM' or other data or something els
 So to do that lets multiply q1 *k1, infact q1*k1 is dot product or vector multiplication
 q1*k1 = 12, q1*k=21
 
-Diagram: multiplication
+![score](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/d6493bb2-3afe-477b-9c5d-35bd33047ad7)
 
 #### Next step is to divide the score by 8 which is nothing but dimension of key and calculate the Softmax
 
