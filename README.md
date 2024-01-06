@@ -62,9 +62,11 @@ So until here we are taking input ('I' and 'Am') and converting them to embeddin
 
 Three things introduce here, Queries, Keys and Values., keeping in mind it  will be able to focus
 and relate the data, objective here is very simple, how it will be able to focus on many words and even in that case it does not fail.
-Convert this data into Queries, Key and Values, 
+Convert this data into Queries, Key and Values.
 
-lets define weight vector  for queries k and values. Initally these weights will be a random and then they will be trained, deriving this neural networkd as a function. weith will 
+![initalkeyquery](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/9ef8790a-8822-4aaf-a883-6a96555615cf)
+
+lets define weight vector  for queries k and values. Initally these weights will be a random and then they will be trained, deriving this neural networkd as a function. Weight will 
 learn the relationship in back propogation by minimising the loss.
 
 ####
