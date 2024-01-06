@@ -57,10 +57,12 @@ Convert this data into Queries, Key and Values,
 lets define weight vector  for queries k and values. Initally these weights will be a random and then they will be trained, deriving this neural networkd as a function. weith will 
 learn the relationship in back propogation by minimising the loss.
 
+####
 So first step is to create a query.
 The input(imbeddings) 'I' word is passed through the neural network the weights used are Wq and proudcing the queries and this is refered as q1
 similarly pass the word 'Am' and generate q2
 
+####
 2nd step, create a key value k1 and k2, like query we will use another neural neworkd and pass I and AM however with different weight matrix i.e. Wk.
 
 What about values(v1 & v2), here we will use another weight matrix Wk and pass the embedding.
@@ -84,7 +86,8 @@ Instead of doing that why not create multiple network with multiple weight matri
  network independet of each other and that way system is allowing itself to learn many pattern.
  So the question is how best possible way to build the relation between different words.
 
-#####  So lets move on to other step:
+##### 
+So lets move on to other step:
 Calculate Score: This is another atribute
 
 Rational: So far we were trying to create independent vector q, k and v and there 
@@ -124,6 +127,20 @@ a specific pattern that model learns and helps it determinte the position of eac
 The rational here is that addition of these position or vector along with embeddings is to provide meaningful distances between the embeddings vectors once they are used to generate the
 queries, key and value.
 
+### Addition and Normalization
+If we look closely to the architecture then right after positional encoding one arrow goes to Add & Norm block, which is nothing but the skip connection (ResNet concept), so the rational here 
+is if multiheaded connection which is nothing but a neural network is not able to learn something, if it is not able to train the weight or if there is nothing to train/change the weight or if system is not able to minimize the loss then try to skip this particular step and send dataset directly to Addition and Normalization.
+Addition is normal addition operation (X1+Z1 for e.g.) and Normalization is to bring down the data in between particular scale.
+
+### Feed Forward Network
+The data moved over to the next block i.e. Feed Forward Network again it will have n numbers of layers, numers of hidden units will be present and then again it will send data to Addition and Normalization layer.
+
+With this Encoder part is Done! (left hand side of the architecture)
+
+The output from this encoder or from this entire neural network can be used for various task like sentence classification or may to generate new data ortext or new word.
+
+### Practical Usage:
+Bidirectional Encoder Representation from Transformer is a LLM (large language module) is encoder based transfomer model introduced in 2018 by Google
 
 IF it is not able to learn something, if it is not able to train the weight
  then try to skip this particular path and try to send the input to addition and 
