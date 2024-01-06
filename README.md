@@ -113,7 +113,7 @@ q1*k1 = 12, q1*k=21
 
 #### Next step is to divide the score by 8 which is nothing but dimension of key and calculate the Softmax
 
-Diagram
+![softmax](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/ff242527-4c8f-453b-8457-0e7917f261ec)
 
 Since softmax is we can say that I word is more related to AM than by itelf, that is intution we are getting by whatever hardcode value we have taken, that way
 we are trying to see on which word it is focusing more.
