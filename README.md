@@ -28,7 +28,8 @@ Let create a single system where in, on one side there is encoder and on other t
 encoder take the input and decoder give the output so the definition is not going to change in this 
 system.
 
-Diagram
+![hld](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/0b23dfd9-73bb-41f3-85d3-019ddad70ee8)
+
 
 If one encoder can understand the length of the sentences, then why not placed multiple encoder, one will try to understand something and give output to another and then other encoder 
 will try to understand other relation and gives output to other, so base architecture uses the 6 set of encoder stack on one other and 6 set of decoder.
