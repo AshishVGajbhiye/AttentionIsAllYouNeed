@@ -24,7 +24,7 @@ So lets try to wrap each and every arrow and block of below architecture one by 
 ![1*CUeVcFFBclKsH504JraLQg](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/735e356c-6351-4efb-8ef0-1d40fb9d0c7a)
 
 The objective was always to understand the context when the sentences are long or to co-relate the long sentences, 
-this can be achieved by creating some sort of large and complex Neural Networdk which will have enough number of parameter to learn and retain the relations/context,
+this can be achieved by creating some sort of large and complex Neural Network which will have enough number of parameter to learn and retain the relations/context,
 then there is chance that system will be able to understand in more possible way.
 In below diagram on one side there is encoder and on other there is decoder,
 encoder take the input and decoder give the output so the definition is not going to change in this 
