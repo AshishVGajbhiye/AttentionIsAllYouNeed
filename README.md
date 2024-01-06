@@ -48,7 +48,11 @@ Take two word 'I' and 'am', this is an input and label them as X1 and X2.
 
 Since system will not able to understand this input, so the first task is to convert them to
 numerical representation which is called as Embedding, and these embeddings are nothing but 
-N dimenstion(vector space) representation of word. So one word can be represent in N number of vector depends upon use case, 
+N dimenstion(vector space) representation of word. 
+
+![Untitled Diagram-Embedding](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/bad0ae17-365b-4b4a-ae87-f86e9899ba6c)
+
+So one word can be represent in N number of vector depends upon use case, 
 however here the dimension of embedding is 512 (array), so one word is represented by 512 numbers.
 
 So until here we are taking input ('I' and 'Am') and converting them to embeddings(numerical representations), i.e Encoder receiving the vectors as Input
