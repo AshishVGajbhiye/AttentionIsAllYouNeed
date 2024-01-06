@@ -127,6 +127,11 @@ The next calculation is to multiply each value vector by the softmax score and s
 ![Sum](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/cd8e2f0d-0999-496f-b297-6172c6a6c7a1)
 So Z1 is for I word and Z2 is for AM word, so here the whole thing is how we will try to create a function which will try to relate it each and every word and still focus on one word or other word or many word. 
 
+Attention Formula:
+
+![AttentionFormula](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/b244f9ef-8395-4364-85ce-29eaf325f5cd)
+
+
 #### Multi-Headed Attention
 Until now above we have seen one neural netword is used each to generate the query, key and value, however in original architecture the Transformer uses eight attention heads, so we end up with eight sets for each encoder/decoder.
 And this improves the performance of the attention in two ways-
