@@ -88,6 +88,7 @@ Instead of doing that why not create multiple network with multiple weight matri
 
 ##### 
 So lets move on to other step:
+
 Calculate Score: This is another atribute
 
 Rational: So far we were trying to create independent vector q, k and v and there 
@@ -142,9 +143,19 @@ The output from this encoder or from this entire neural network can be used for 
 ### Practical Usage:
 Bidirectional Encoder Representation from Transformer is a LLM (large language module) is encoder based transfomer model introduced in 2018 by Google
 
-IF it is not able to learn something, if it is not able to train the weight
- then try to skip this particular path and try to send the input to addition and 
- normilization. add and normilization, addidion is normal additon and
- Normilanization is bring donw data to a particular scale
-Diagram of vector.
+Add a output layer or softmax function and it can used as a classification and can be used for any task like tokenization generation.
+
+If we talk about GPT, it is completely based on Decoder which has been (GPT 3) trained on 1.7 B parameters.
+
+
+Now let's come to the other side of the Architercture i.e Decoder.
+
+#### Decoder
+-----------------
+The simple role of the decoder is provide the outcome
+
+The output from the Enocder which we can say query, key and value and pass the entire output to Multi-Head Attention block of Decoder, plus output from 'Masked Multi-Head Attention' block.
+So what is the Masked here..It is nothing but hide some information or detail and send it to the network, the rational behind is to check whether my network is capable enough to generate that hidden information or not, so this is one change on decoder part.
+
+Decoder will try to give the final outcome, now whatever outcome it is going to give you for sure it need classification or probability of occurence of data for that reason a simple linear neural network is placed and logit function of softmax or probaitliyt function as a softmax so that i ca tel you final classificaiton for whtever the word we have.
 
