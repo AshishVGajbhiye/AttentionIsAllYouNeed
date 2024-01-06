@@ -55,6 +55,9 @@ N dimenstion(vector space) representation of word.
 So one word can be represent in N number of vector depends upon use case, 
 however here the dimension of embedding is 512 (array), so one word is represented by 512 numbers.
 
+![embeddings](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/86a1c25b-64ce-419c-998c-a9f3e14653bd)
+
+
 So until here we are taking input ('I' and 'Am') and converting them to embeddings(numerical representations), i.e Encoder receiving the vectors as Input
 
 Three things introduce here, Queries, Keys and Values., keeping in mind it  will be able to focus
