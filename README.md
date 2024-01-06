@@ -3,6 +3,8 @@
 This writing has based on the research paper 'Attention is all you need' publised in 2017 by scholars from google brain, which has completely changed the dimension 
 of Natural Language Processing(commonly known as NLP). This paper has worked in better use of attention mechanism toward the improvement of the model called as Transformer.
 
+![487-4875552_transformer-jpeg-en-png-transparent-ratchet-transformers-michael png](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/92e2b69f-babd-4e93-b088-5fd1dacadaaf)
+
 ## Why Transformer
 
 Issue with attention model based on encoder and decoder:
