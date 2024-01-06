@@ -40,7 +40,7 @@ will try to understand other relation and gives output to other, so base archite
 The initial encoder is of various recurrent neural network(LSTM, GRU, Bi-Directional LSTM), however here it is completely
 different, so lets have a look what has been changed in one encoder
 
-Diagram
+![multifeed](https://github.com/AshishVGajbhiye/AttentionIsAllYouNeed/assets/53076609/a6e7e252-10ae-47bd-be04-27e681e0143d)
 
 Every Encoder is composed of two block Feed Forward Neural Network and Self Attention,
 feed forward neural network is like any other neural network, however what exactly is Self Attention here, lets see:
